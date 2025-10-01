@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 
 public final class Waits {
 
-    /** Чекає поки document.readyState стане 'complete' */
+    /** Waits until document.readyState is 'complete' */
     public static void waitForDocumentReady(WebDriver driver, Duration timeout) {
         new FluentWait<>(driver)
                 .withTimeout(timeout)

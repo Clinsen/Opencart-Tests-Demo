@@ -6,11 +6,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class HomePage extends BasePage {
-    private final By searchInput = By.name("search"); // стабільний інпут у хедері
+    private final By searchInput = By.name("search");
 
     public HomePage(WebDriver driver) { super(driver); }
 
-    /** Сторінка вважається завантаженою, коли видно поле пошуку */
+    /** The page is considered to be loaded when the search input is visible */
     public boolean isLoaded() {
         try {
             waitVisible(searchInput);
