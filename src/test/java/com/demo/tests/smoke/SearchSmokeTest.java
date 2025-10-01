@@ -9,7 +9,7 @@ public class SearchSmokeTest extends BaseTest {
 
     @Test
     public void searchMacBookShowsResults() {
-        HomePage home = new HomePage(driver);
+        HomePage home = new HomePage(driver());
         Assert.assertTrue(home.isLoaded(), "Home page is not loaded (search input not visible).");
 
         var results = home.header().search("MacBook");
