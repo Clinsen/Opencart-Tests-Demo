@@ -26,16 +26,6 @@ public abstract class BaseTest {
 
     @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result) {
-        WebDriver drv = DriverManager.getDriver();
-        try {
-            if (drv != null && !result.isSuccess()) {
-                String path = ScreenshotUtils.take(drv, result.getName());
-                System.out.println("Saved screenshot: " + path);
-            }
-        } catch (Exception e) {
-            System.out.println("Failed to save screenshot: " + e.getMessage());
-        } finally {
-            DriverManager.quitDriver();
-        }
+        DriverManager.quitDriver();
     }
 }
