@@ -7,6 +7,7 @@ import org.openqa.selenium.*;
 public class SearchResultsPage extends BasePage {
     private final By productCards = By.cssSelector(".product-thumb");
     private final By heading = By.cssSelector("#content h1");
+    private final By firstProduct = By.cssSelector(".product-thumb h4 a");
 
     public SearchResultsPage(WebDriver driver) { super(driver); }
 
@@ -17,7 +18,6 @@ public class SearchResultsPage extends BasePage {
     }
 
     public ProductPage openFirstProduct() {
-        var firstProduct = org.openqa.selenium.By.cssSelector(".product-thumb h4 a");
         click(firstProduct);
         return new ProductPage(driver);
     }
