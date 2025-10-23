@@ -16,5 +16,11 @@ public class SearchResultsPage extends BasePage {
         return items.size();
     }
 
+    public ProductPage openFirstProduct() {
+        var firstProduct = org.openqa.selenium.By.cssSelector(".product-thumb h4 a");
+        click(firstProduct);
+        return new ProductPage(driver);
+    }
+
     public String headingText() { return text(heading); }
 }
