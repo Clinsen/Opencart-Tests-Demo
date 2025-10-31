@@ -11,6 +11,8 @@ public class CartPage extends BasePage {
     private final By firstProductLink = By.cssSelector(
             "form[action*='checkout/cart/edit'] .table-responsive > table.table-bordered tbody tr td:nth-child(2) a");
     private final By heading = By.cssSelector("#content h1");
+    private final By proceedToCheckout = By.cssSelector(
+            ".buttons .pull-right a.btn-primary, a[href*='route=checkout/checkout']");
 
     public CartPage(WebDriver driver) { super(driver); }
 
@@ -24,5 +26,10 @@ public class CartPage extends BasePage {
 
     public String firstItemName() {
         return driver.findElement(firstProductLink).getText();
+    }
+
+    public CheckoutPage proceedToCheckout() {
+        click(proceedToCheckout);
+        return new CheckoutPage(driver);
     }
 }
