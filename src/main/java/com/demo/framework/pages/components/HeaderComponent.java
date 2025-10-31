@@ -9,6 +9,10 @@ public class HeaderComponent extends BasePage {
     private final By searchInput = By.name("search");
     private final By searchButton = By.cssSelector("#search button");
 
+    public boolean isVisible() {
+        return waitVisible(By.id("logo")).isDisplayed();
+    }
+
     public HeaderComponent(WebDriver driver) { super(driver); }
 
     public SearchResultsPage search(String query) {
