@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 public class ProductPage extends BasePage {
 
     private final By title = By.cssSelector("#content h1");
+    private final By addToCart = By.id("button-cart");
+    private final By successAlert = By.cssSelector(".alert-success");
 
     public ProductPage(WebDriver driver) {
         super(driver);
@@ -18,5 +20,13 @@ public class ProductPage extends BasePage {
 
     public String getTitle() {
         return text(title);
+    }
+
+    public void addToCart() {
+        click(addToCart);
+    }
+
+    public boolean isAddToCartSuccess() {
+        return waitVisible(successAlert).isDisplayed();
     }
 }
