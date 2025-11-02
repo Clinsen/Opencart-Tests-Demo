@@ -14,6 +14,7 @@ public class CartContentsTests extends BaseTest {
         Assert.assertTrue(product.isLoaded(), "Product page not loaded");
 
         product.addToCart();
+        Assert.assertTrue(product.isAddToCartSuccess(), "No success alert after adding to the cart");
         var cart = home.header().openCartPage();
 
         Assert.assertTrue(cart.isLoaded(), "Cart page not loaded");

@@ -24,6 +24,7 @@ public class ProductPage extends BasePage {
 
     public void addToCart() {
         click(addToCart);
+        waitVisible(successAlert);
     }
 
     public boolean isAddToCartSuccess() {

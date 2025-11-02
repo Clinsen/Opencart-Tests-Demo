@@ -7,7 +7,8 @@ import org.openqa.selenium.*;
 
 public class HeaderComponent extends BasePage {
     private final By searchInput = By.name("search");
-    private final By searchButton = By.cssSelector("#search button");
+    private final By cartToggle = By.cssSelector("#cart .dropdown-toggle");
+    private final By viewCart   = By.cssSelector("#cart .dropdown-menu a[href*='route=checkout/cart']");
 
     public boolean isVisible() {
         return waitVisible(By.id("logo")).isDisplayed();
@@ -22,8 +23,8 @@ public class HeaderComponent extends BasePage {
     }
 
     public CartPage openCartPage() {
-        By cartLink = By.cssSelector("a[title='Shopping Cart'], a[href*='route=checkout/cart']");
-        click(cartLink);
+        click(cartToggle);
+        click(viewCart);
         return new CartPage(driver);
     }
 }
