@@ -15,7 +15,10 @@ public class CartPage extends BasePage {
     private final By heading = By.cssSelector("#content h1");
     private final By proceedToCheckout = By.cssSelector(
             ".buttons .pull-right a.btn-primary, a[href*='route=checkout/checkout']");
-    private final By emptyHeading = By.cssSelector("#content h1");
+    private final By couponToggle   = By.cssSelector("a[href='#collapse-coupon']");
+    private final By couponInput    = By.id("input-coupon");
+    private final By couponApplyBtn = By.id("button-coupon");
+    private final By alertDanger    = By.cssSelector(".alert.alert-danger");
 
     public CartPage(WebDriver driver) { super(driver); }
 
@@ -35,5 +38,22 @@ public class CartPage extends BasePage {
     public CheckoutPage proceedToCheckout() {
         click(proceedToCheckout);
         return new CheckoutPage(driver);
+    }
+
+    public void openCouponSection() {
+        click(couponToggle);
+    }
+
+    public void applyCoupon(String code) {
+        type(couponInput, code);
+        click(couponApplyBtn);
+    }
+
+    public boolean isCouponErrorShown() {
+        return waitVisible(alertDanger).isDisplayed();
+    }
+
+    public String couponErrorText() {
+        return text(alertDanger).trim().toLowerCase();
     }
 }
