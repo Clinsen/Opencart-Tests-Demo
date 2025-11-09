@@ -19,6 +19,10 @@ public abstract class BasePage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    protected void waitUntil(java.util.function.Function<WebDriver, Boolean> condition) {
+        new WebDriverWait(driver, Duration.ofSeconds(Environment.timeoutSec())).until(condition);
+    }
+
     protected void click(By locator) {
         wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
