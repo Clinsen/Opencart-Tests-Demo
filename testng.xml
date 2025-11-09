@@ -9,4 +9,10 @@
             <package name="com.demo.tests.smoke"/>
         </packages>
     </test>
+
+    <test name="Functional">
+        <packages>
+            <package name="com.demo.tests.functional"/>
+        </packages>
+    </test>
 </suite>
