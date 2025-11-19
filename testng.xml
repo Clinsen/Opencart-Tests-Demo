@@ -15,4 +15,10 @@
             <package name="com.demo.tests.functional"/>
         </packages>
     </test>
+
+    <test name="Regression">
+        <packages>
+            <package name="com.demo.tests.regression"/>
+        </packages>
+    </test>
 </suite>
