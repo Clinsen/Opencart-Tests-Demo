@@ -2,8 +2,9 @@ name: UI Tests
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
+  workflow_dispatch:
 
 jobs:
   tests:
@@ -19,8 +20,8 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Build & run tests
-        run: mvn -B -q clean test
+      - name: Build & run tests (headless)
+        run: mvn -B -q clean test -Dheadless=true
 
       - name: Generate Allure report
         run: mvn -q allure:report
